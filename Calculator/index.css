@@ -53,3 +53,12 @@ color: antiquewhite;
     font-size: 35px;
     background-color: black;
 }
+
+#igual:hover{
+    font-size: 45px;
+}
+
+#cuadrado{
+    width: 100%;
+    background-color: #ff8c00;
+}

@@ -1,6 +1,6 @@
 //variables para operaciones
-var operandoA;
-var operandoB;
+var operandoA = 0;
+var operandoB = 0;
 var operacion;
 
 function init() {
@@ -16,16 +16,27 @@ function init() {
     var ocho = document.getElementById("8")
     var nueve = document.getElementById("9")
     var cero = document.getElementById("0")
-    var suma = document.getElementById("suma")
-    var resta = document.getElementById("resta")
+    var suma = document.getElementById("mas")
+    var resta = document.getElementById("menos")
     var multiplicacion = document.getElementById("multi")
     var division = document.getElementById("divi")
     var igual = document.getElementById("igual")
     var cancelar = document.getElementById("cancelar")
+    var punto = document.getElementById("punto")
+    var raiz = document.getElementById("raiz")
+    var cuadrado = document.getElementById("cuadrado")
     
+
+    function limpiar() {
+        result.textContent = "";
+    }
 
     uno.onclick = function(e) {
         result.textContent = result.textContent + "1";
+    }
+
+    punto.onclick = function(e) {
+        result.textContent = result.textContent + ".";
     }
 
     dos.onclick = function(e) {
@@ -62,6 +73,7 @@ function init() {
 
     cero.onclick = function(e) {
         result.textContent = result.textContent + "0";
+       
     }
 
     cancelar.onclick = function(e) {
@@ -71,7 +83,7 @@ function init() {
     suma.onclick = function(e) {
         operandoA = result.textContent;
         operacion = "+";
-        limpiar();
+        limpiar(); 
     }
 
     resta.onclick = function(e) {
@@ -91,16 +103,25 @@ function init() {
         operacion = "/";
         limpiar();
     }
+    raiz.onclick = function(e) {
+        operandoA = result.textContent;
+        operacion = "raiz";
+        limpiar();
+    }
 
+    cuadrado.onclick = function(e) {
+        operandoA = result.textContent;
+        operacion = "cuadrado";
+        limpiar();
+    }
     igual.onclick = function(e) {
         operandoB = result.textContent;
         resolver();
     }
-}
 
-function limpiar() {
-    result.textContent = "";
-}
+    
+
+
 
 function reset() {
     result.textContent = "";
@@ -115,7 +136,6 @@ function resolver() {
         case "+":
             res = parseFloat(operandoA) + parseFloat(operandoB);
             break;
-
         case "-":
             res = parseFloat(operandoA) - parseFloat(operandoB);
             break;
@@ -127,8 +147,19 @@ function resolver() {
         case "/":
             res = parseFloat(operandoA) / parseFloat(operandoB);
             break;
+        case "raiz":
+            res = Math.sqrt((parseFloat(operandoA)));
+            break;
+        case "cuadrado":
+            res = parseFloat(operandoA) ** 2;
+            break;
+
+
     }
 
     reset();
     result.textContent = res;
 }
+}
+
+//square root on js
