@@ -25,7 +25,7 @@ function init() {
     var punto = document.getElementById("punto")
     var raiz = document.getElementById("raiz")
     var cuadrado = document.getElementById("cuadrado")
-    
+    var Factorial = document.getElementById("Factorial")
 
     function limpiar() {
         result.textContent = "";
@@ -114,10 +114,25 @@ function init() {
         operacion = "cuadrado";
         limpiar();
     }
+    Factorial.onclick = function(e) {
+        operandoA = result.textContent;
+        operacion = "Factorial";
+        limpiar();
+    }
+
     igual.onclick = function(e) {
         operandoB = result.textContent;
         resolver();
     }
+
+    function factorial2(operandoA) { 
+        if (parseFloat(operandoA) === 0) { 
+            return 1; 
+        } 
+        else { 
+            return parseFloat(operandoA) * factorial2( parseFloat(operandoA) - 1 ); 
+        } 
+    } 
 
     
 
@@ -153,6 +168,8 @@ function resolver() {
         case "cuadrado":
             res = parseFloat(operandoA) ** 2;
             break;
+        case "Factorial":
+            res = factorial2(operandoA);
 
 
     }
